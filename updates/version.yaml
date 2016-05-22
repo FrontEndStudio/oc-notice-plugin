@@ -1,0 +1,9 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table fes_notice_records'
+    - create_fes_notice_records_table.php
+    - 'Created table fes_notice_categories'
+    - create_fes_notice_categories_table.php
+    - 'Seed all tables'
+    - seed_all_tables.php

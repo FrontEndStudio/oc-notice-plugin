@@ -1,0 +1,11 @@
+{% set records = __SELF__.records %}
+{% set noRecordsMessage = __SELF__.noRecordsMessage %}
+{% set extraData = __SELF__.extraData %}
+
+<ul>
+    {% for record in records %}
+        <li>{{ record.title }}</li>
+    {% else %}
+        <li>{{ noRecordsMessage }}</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,16 @@
+title: fes.notice::lang.plugin.name
+modelClass: Fes\Notice\Models\Record
+list: $/fes/notice/models/record/columns.yaml
+recordUrl: 'fes/notice/record/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+showSorting: 1
+defaultSort:
+    column: sort_order
+    direction: desc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+showTree: false

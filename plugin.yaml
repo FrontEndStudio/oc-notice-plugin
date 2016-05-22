@@ -1,0 +1,39 @@
+plugin:
+    name: 'fes.notice::lang.plugin.name'
+    description: 'fes.notice::lang.plugin.description'
+    author: FrontEndStudio
+    icon: oc-icon-home
+    homepage: 'http://www.frontendstudio.com'
+permissions:
+    fes.notice.records:
+        tab: 'fes.notice::lang.permissions.records.tab'
+        label: 'fes.notice::lang.permissions.records.label'
+    fes.notice.categories:
+        tab: 'fes.notice::lang.permissions.categories.tab'
+        label: 'fes.notice::lang.permissions.categories.label'
+navigation:
+    main-menu-item:
+        label: 'fes.notice::lang.plugin.name'
+        url: fes/notice/record
+        icon: icon-home
+        permissions:
+            - fes.notice.records
+        sideMenu:
+            side-menu-records-create:
+                label: 'fes.notice::lang.action.record.menu-create'
+                url: fes/notice/record/create
+                icon: icon-plus
+                permissions:
+                    - fes.notice.records
+            side-menu-records:
+                label: 'fes.notice::lang.action.record.menu'
+                url: fes/notice/record
+                icon: icon-copy
+                permissions:
+                    - fes.notice.records
+            side-menu-categories:
+                label: 'fes.notice::lang.action.category.menu'
+                url: fes/notice/categories
+                icon: icon-list-ul
+                permissions:
+                    - fes.notice.categories

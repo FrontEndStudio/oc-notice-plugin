@@ -1,0 +1,10 @@
+name: fes.notice::lang.plugin.name
+form: $/fes/notice/models/record/fields.yaml
+modelClass: Fes\Notice\Models\Record
+defaultRedirect: fes/notice/record
+create:
+    redirect: 'fes/notice/record/update/:id'
+    redirectClose: fes/notice/record
+update:
+    redirect: fes/notice/record
+    redirectClose: fes/notice/record

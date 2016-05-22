@@ -1,0 +1,7 @@
+columns:
+    name:
+        label: fes.notice::lang.category.name
+        searchable: true
+    record_count:
+        label: fes.notice::lang.category.record_count
+        sortable: false

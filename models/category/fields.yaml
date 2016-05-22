@@ -1,0 +1,8 @@
+fields:
+    name:
+        label: fes.notice::lang.category.name
+        span: left
+    slug:
+        label: fes.notice::lang.category.slug
+        span: right
+        preset: name

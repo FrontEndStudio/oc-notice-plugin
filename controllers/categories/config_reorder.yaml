@@ -1,0 +1,5 @@
+title: fes.notice::lang.plugin.name
+modelClass: Fes\Notice\Models\Category
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

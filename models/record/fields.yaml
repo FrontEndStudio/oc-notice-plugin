@@ -1,0 +1,64 @@
+fields:
+    title:
+        label: fes.notice::lang.record.title
+        span: auto
+        type: text
+    category:
+        label: fes.notice::lang.record.category
+        type: relation
+        nameFrom: name
+        span: full
+    show_home:
+        label: fes.notice::lang.record.show_home
+        span: full
+        type: switch
+        default: false
+    published:
+        label: fes.notice::lang.record.published
+        span: full
+        type: switch
+        default: true
+    section:
+        span: full
+        type: radio
+        options:
+           calendar: [fes.notice::lang.record.calendar]
+           news: [fes.notice::lang.record.news]
+           download: [fes.notice::lang.record.download]
+        default: calendar
+    calendar_section:
+        label: fes.notice::lang.record.calendar
+        type: section
+    date:
+        label: fes.notice::lang.record.date
+        span: auto
+        mode: date
+        type: datepicker
+    news_section:
+        label: fes.notice::lang.record.news
+        type: section
+    link:
+        label: fes.notice::lang.record.link
+        span: auto
+        type: text
+    message:
+        label: fes.notice::lang.record.message
+        span: full
+        type: textarea
+        size: small
+    image:
+        label: fes.notice::lang.record.image
+        span: full
+        type: fileupload
+        mode: image
+        imageWidth: 160
+        imageHeight: 120
+        useCaption: true
+    download_section:
+        label: fes.notice::lang.record.download
+        type: section
+    file:
+        span: auto
+        type: fileupload
+        mode: file
+        useCaption: false

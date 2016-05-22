@@ -1,0 +1,10 @@
+name: fes.notice::lang.plugin.name
+form: $/plugins/fes/notice/models/category/fields.yaml
+modelClass: Fes\Notice\Models\Category
+defaultRedirect: fes/notice/categories
+create:
+    redirect: fes/notice/categories/update/:id
+    redirectClose: fes/notice/categories
+update:
+    redirect: fes/notice/categories
+    redirectClose: fes/notice/categories
