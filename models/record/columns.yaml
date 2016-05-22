@@ -8,15 +8,25 @@ columns:
         label: fes.notice::lang.record.category
         relation: category
         select: name
+        type: text
         searchable: true
         sortable: true
     show_home:
         label: fes.notice::lang.record.show_home
         type: checkbox
+        searchable: false
+        sortable: true
     published:
         label: fes.notice::lang.record.published
         type: number
+        searchable: false
         sortable: true
     section:
         label: fes.notice::lang.record.section
         type: radio
+        searchable: true
+        sortable: true
+    sort_order:
+        label: fes.notice::lang.record.sort_order
+        searchable: true
+        sortable: true

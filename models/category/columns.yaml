@@ -1,7 +1,16 @@
 columns:
     name:
         label: fes.notice::lang.category.name
+        type: text
+        sortable: true
+        searchable: true
+    slug:
+        label: fes.notice::lang.category.slug
+        type: text
+        sortable: true
         searchable: true
     record_count:
         label: fes.notice::lang.category.record_count
+        type: number
         sortable: false
+        searchable: false

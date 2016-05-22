@@ -35,9 +35,10 @@ class Categories extends Controller
                 if ((!$category = Category::find($categoryId))) {
                     continue;
                 }
+
+                $category->delete();
             }
 
-            $category->delete();
         }
 
         Flash::success(Lang::get('fes.notice::lang.action.category.deleted-success'));

@@ -17,10 +17,11 @@ class Category extends Model
     /*
      * Validation
      */
+//         'code' => 'unique:fes_notice_categories',
+
     public $rules = [
         'name' => 'required',
-        'slug' => 'required|between:3,64|unique:fes_notice_categories',
-        'code' => 'unique:fes_notice_categories',
+        'slug' => 'required|between:3,64|unique:fes_notice_categories'
     ];
 
     protected $guarded = [];

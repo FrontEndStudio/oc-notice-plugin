@@ -1,5 +1,5 @@
 name: fes.notice::lang.plugin.name
-form: $/plugins/fes/notice/models/category/fields.yaml
+form: $/fes/notice/models/category/fields.yaml
 modelClass: Fes\Notice\Models\Category
 defaultRedirect: fes/notice/categories
 create:

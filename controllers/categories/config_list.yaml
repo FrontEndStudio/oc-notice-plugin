@@ -5,10 +5,7 @@ recordUrl: fes/notice/categories/update/:id
 noRecordsMessage: backend::lang.list.no_records
 showSetup: true
 showCheckboxes: true
-showSorting: 1
-defaultSort:
-    column: sort_order
-    direction: desc
+showSorting: 0
 toolbar:
     buttons: list_toolbar
     search:

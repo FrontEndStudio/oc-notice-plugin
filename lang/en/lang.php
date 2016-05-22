@@ -40,7 +40,7 @@
         'message' => 'Message',
         'image' => 'Image',
         'file' => 'File',
-        'sort_order' => 'Sort Order',
+        'sort_order' => 'Sort Order'
     ],
     'category' => [
         'name' => 'Name',
