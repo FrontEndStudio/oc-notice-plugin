@@ -32,12 +32,29 @@ class Record extends Model
     ];
 
     public $attachOne = [
-        'image' => ['System\Models\File']
+        'image' => ['System\Models\File', 'delete' => true]
     ];
 
     public $attachMany = [
-        'file' =>  ['System\Models\File', 'order' => 'sort_order']
+        'file' =>  ['System\Models\File', 'order' => 'sort_order', 'delete' => true]
     ];
+
+    public function afterDelete()
+    {
+
+
+        foreach ($this->file as $file) {
+            $file->delete();
+        }
+
+
+        $image = $this->image;
+
+        if (isset($image)) {
+            $image->delete();
+        }
+
+    }
 
 
     //

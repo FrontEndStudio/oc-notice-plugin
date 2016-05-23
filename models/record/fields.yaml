@@ -25,6 +25,7 @@ fields:
            calendar: [fes.notice::lang.record.calendar]
            news: [fes.notice::lang.record.news]
            download: [fes.notice::lang.record.download]
+           link: [fes.notice::lang.record.link]
         default: calendar
     calendar_section:
         label: fes.notice::lang.record.calendar
@@ -44,8 +45,9 @@ fields:
     message:
         label: fes.notice::lang.record.message
         span: full
-        type: textarea
+        type: markdown
         size: small
+        mode: split
     image:
         label: fes.notice::lang.record.image
         span: full

@@ -35,6 +35,7 @@
         'calendar' => 'Calendar',
         'news' => 'News',
         'download' => 'Download',
+        'link' => 'Link',
         'date' => 'Date',
         'link' => 'Link (optional)',
         'message' => 'Message',
