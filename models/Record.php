@@ -36,14 +36,14 @@ class Record extends Model
     ];
 
     public $attachMany = [
-        'file' =>  ['System\Models\File', 'order' => 'sort_order', 'delete' => true]
+        'files' =>  ['System\Models\File', 'order' => 'sort_order', 'delete' => true]
     ];
 
     public function afterDelete()
     {
 
 
-        foreach ($this->file as $file) {
+        foreach ($this->files as $file) {
             $file->delete();
         }
 

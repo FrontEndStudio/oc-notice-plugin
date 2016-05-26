@@ -1,0 +1,19 @@
+{% set records = __SELF__.records %}
+{% set noRecordsMessage = __SELF__.noRecordsMessage %}
+
+<div class="headlines_small_no_hl" role="complementary">
+    <h2>Downloads</h2>
+    <ul>
+    {% for record in records %}
+        <li>
+            <span class="no_link">{{ record.title }}</span><br />
+            {% for file in record.files %}
+                {% set extension = file.file_name|split('.')|last %}
+                <a href="{{ file.getPath() }}" title="{{ file.file_name }}"><i class="icon-pencil"></i> download .{{ extension }} bestand</a>
+            {% endfor %}
+        </li>
+    {% else %}
+        <li>{{ noRecordsMessage }}
+    {% endfor %}
+    </ul>
+</div>

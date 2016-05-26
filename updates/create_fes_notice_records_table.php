@@ -17,6 +17,7 @@ class CreateFesNoticeRecordsTable extends Migration
             $table->date('date')->nullable();
             $table->string('link')->nullable();
             $table->text('message')->nullable();
+            $table->text('media')->nullable();
             $table->boolean('published')->default(1);
             $table->integer('sort_order');
         });

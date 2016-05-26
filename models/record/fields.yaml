@@ -25,7 +25,6 @@ fields:
            calendar: [fes.notice::lang.record.calendar]
            news: [fes.notice::lang.record.news]
            download: [fes.notice::lang.record.download]
-           link: [fes.notice::lang.record.link]
         default: calendar
     calendar_section:
         label: fes.notice::lang.record.calendar
@@ -56,10 +55,14 @@ fields:
         imageWidth: 160
         imageHeight: 120
         useCaption: true
+    media:
+        label: fes.notice::lang.record.image
+        type: mediafinder
+        mode: image
     download_section:
         label: fes.notice::lang.record.download
         type: section
-    file:
+    files:
         span: auto
         type: fileupload
         mode: file

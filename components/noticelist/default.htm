@@ -2,10 +2,47 @@
 {% set noRecordsMessage = __SELF__.noRecordsMessage %}
 {% set extraData = __SELF__.extraData %}
 
-<ul>
-    {% for record in records %}
-        <li>{{ record.title }}</li>
+<div role="complementary" class="highlights-container">
+
+{% for record in records %}
+
+    {% set link = "" %}
+
+    {% if record.link %}
+        {% set link %}<a href="{{ record.link }}" title="{{ record.title }}">{% endset %}
     {% else %}
-        <li>{{ noRecordsMessage }}</li>
-    {% endfor %}
-</ul>
+        {% for file in record.files %}
+            {% if loop.first %}
+                {% set link %}<a href="{{ file.getPath() }}" title="{{ file.file_name }}">{% endset %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if loop.index is not divisibleby(2) %}
+        <div class="highlights--row">
+    {% endif %}
+            <div class="highlights--item">
+                <h1 class="highlights--header">{% if link %}{{ link }}{% endif %}{{ record.title }}{% if link %}</a>{% endif %}</h1>
+                {% if record.image.file_name %}
+                    {% set getThumb %}{{ record.image.getThumb(220, 165, 'auto') }}{% endset %}
+                    {% set mediaThumb %}{{ record.media|mediathumb_resize('auto', 220, 100) }}{% endset %}
+                    {% if link %}{{ link }}{% endif %}<div class="highlights--image-outer">
+                        <div class="highlights--image-inner" style="background-image: url('{{ mediaThumb }}');"></div>
+                    </div>{% if link %}</a>{% endif %}
+                {% endif %}
+
+                <div class="highlights--content">{% if link %}{{ link }}{% endif %}{{ record.message|md }}{% if link %}</a>{% endif %}</div>
+            </div>
+    {% if loop.index is divisibleby(2) or loop.last == 1 %}
+        </div>
+    {% endif %}
+
+{% else %}
+    <div class="highlights--row">
+        <div class="highlights--item">
+            <h1 class="highlights--header">{{ noRecordsMessage }}</h1>
+        </div>
+    </div>
+{% endfor %}
+
+</div>

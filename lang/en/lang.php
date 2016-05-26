@@ -4,14 +4,26 @@
         'description' => 'Plugin to display notices per category'
     ],
     'components' => [
-        'list_title' => 'Notice list',
+        'by_category_name' => 'Notice by category',
+        'by_category_description' => 'List active notice items by category',
+        'by_section_name' => 'Notice by section',
+        'by_section_description' => 'List active notice items by section',
+        'list_name' => 'Notice list',
         'list_description' => 'List active notice items',
-        'list_sorting' => 'Sorting',
-        'list_sort_column' => 'Column',
-        'list_sort_column_description' => 'Column to sort on',
-        'list_sort_direction' => 'Direction',
-        'list_order_direction_asc' => 'asc',
-        'list_order_direction_desc' => 'desc'
+
+        'sorting' => 'Sorting',
+        'sort_column' => 'Column',
+        'sort_column_description' => 'Column to sort on',
+        'sort_direction' => 'Direction',
+        'order_direction_asc' => 'asc',
+        'order_direction_desc' => 'desc',
+        'no_records' => 'No records message',
+        'no_records_description' => 'Message to display in the list in case if there are no records. Used in the default component\'s partial.',
+        'no_records_default' => 'No records found',
+        'category_id' => 'Category',
+        'category_id_description' => 'Category to display',
+        'section' => 'Section',
+        'section_description' => 'Section to display'
     ],
     'create_category' => 'Create Category',
     'action' => [
@@ -37,7 +49,6 @@
         'download' => 'Download',
         'link' => 'Link',
         'date' => 'Date',
-        'link' => 'Link (optional)',
         'message' => 'Message',
         'image' => 'Image',
         'file' => 'File',

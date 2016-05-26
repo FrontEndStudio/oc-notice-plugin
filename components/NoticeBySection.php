@@ -5,25 +5,21 @@ use Cms\Classes\ComponentBase;
 use Lang;
 use Exception;
 use SystemException;
+use Fes\Notice\Models\Record;
+use Fes\Notice\Models\Category;
 
-class NoticeList extends ComponentBase
+class NoticeBySection extends ComponentBase
 {
-
     public $records;
     public $noRecordsMessage;
-    public $extraData;
 
     public function componentDetails()
     {
         return [
-            'name'        => 'fes.notice::lang.components.list_name',
-            'description' => 'fes.notice::lang.components.list_description'
+            'name'        => 'fes.notice::lang.components.by_section_name',
+            'description' => 'fes.notice::lang.components.by_section_description'
         ];
     }
-
-    //
-    // Properties
-    //
 
     public function defineProperties()
     {
@@ -51,20 +47,32 @@ class NoticeList extends ComponentBase
                     'asc'   => 'fes.notice::lang.components.order_direction_asc',
                     'desc'  => 'fes.notice::lang.components.order_direction_desc'
                 ]
+            ],
+            'section' => [
+                'title'             => 'fes.notice::lang.components.section',
+                'description'       => 'fes.notice::lang.components.section_description',
+                'default'           => 'calendar',
+                'type'              => 'dropdown'
             ]
         ];
     }
 
-    public function getSortColumnOptions()
+    public function getsectionOptions()
     {
-        $columnNames = ['title', 'content', 'sort_order'];
-        $result = [];
 
-        foreach ($columnNames as $columnName) {
-            $result[$columnName] = $columnName;
+        $options = [];
+
+        $sections = array (
+                        'calendar' => 'fes.notice::lang.record.calendar',
+                        'news' => 'fes.notice::lang.record.news',
+                        'download' => 'fes.notice::lang.record.download'
+                    );
+
+        foreach ($sections as $k => $v) {
+            $options[$k] = $v;
         }
 
-        return $result;
+        return $options;
 
     }
 
@@ -74,14 +82,10 @@ class NoticeList extends ComponentBase
 
     public function onRun()
     {
-
         $this->prepareVars();
-        $this->records = $this->page['records'] = $this->listRecords();
-    }
-
-    public function onRender()
-    {
-        $this->extraData = $this->page['extraData'] = $this->property('extraData');
+        $query = Record::wherePublished('1')->where('section', $this->property('section'));
+        $query = $this->sort($query);
+        $this->records = $query->with('category')->get();
     }
 
     protected function prepareVars()
@@ -89,21 +93,13 @@ class NoticeList extends ComponentBase
         $this->noRecordsMessage = $this->page['noRecordsMessage'] = Lang::get($this->property('noRecordsMessage'));
     }
 
-    protected function listRecords()
-    {
-        $modelClassName = 'Fes\Notice\Models\Record';
-        $model = new $modelClassName();
-        $model = $this->sort($model);
-        return $model->where('published', '1')->where('show_home', '1')->get();
-    }
-
-    protected function sort($model)
+    protected function sort($query)
     {
 
         $sortColumn = trim($this->property('sortColumn'));
 
         if (!strlen($sortColumn)) {
-            return;
+            return $query;
         }
 
         $sortDirection = trim($this->property('sortDirection'));
@@ -112,6 +108,6 @@ class NoticeList extends ComponentBase
             $sortDirection = 'asc';
         }
 
-        return $model->orderBy($sortColumn, $sortDirection);
+        return $query->orderBy($sortColumn, $sortDirection);
     }
 }
